@@ -1,5 +1,5 @@
 <img src="./docs/aurora.app-screenshot.png" alt="Aurora apps" />
-<br />
+
 <h1 align="center">Aurora.apps</h1>
 
 Web interface to start/stop containers using docker-compose.
@@ -23,8 +23,8 @@ pnpm install
 
 3. Crie um arquivo `.env` com as duas variaveis ambientes abaixo:
 ```bash
-PORT="you port" # Porta do servidor
-COMPOSE_FOLDER="./compose" # Configura em qual pasta ficara os apps;
+PORT="you port" # Server Port
+COMPOSE_FOLDER="./compose" # Specifies in which folder the apps will be located;
 ```
 
 4. Inside the folder declared in the `.env` file, create a new folder with the name of your application.
@@ -32,7 +32,9 @@ COMPOSE_FOLDER="./compose" # Configura em qual pasta ficara os apps;
 5. Inside your application's folder, add your `docker-compose.yml` file.;
 > Remember that the only thing the application does is start/pause the container. Do the rest manually.
 
-  5.1 If you want to add an icon for the application, remember to place it inside the `/public/images/icons` folder.
+<br />
+
+5.1 If you want to add an icon for the application, remember to place it inside the `/public/images/icons` folder.
 Create your folder and add the file there. For example: `/public/images/icons/code-server/icon.png`. To make the icon visible in your application, add a `config.json` file inside the app folder:
   ```JSON
   {
@@ -40,7 +42,7 @@ Create your folder and add the file there. For example: `/public/images/icons/co
   }
   ```
 
-  5.2 If you want to open a web interface when clicking on the application, add your app's URL inside the `config.json` file. Example::
+5.2 If you want to open a web interface when clicking on the application, add your app's URL inside the `config.json` file. Example::
   ```JSON
   {
     "url": "https://code-server.aurora.apps"
@@ -55,7 +57,6 @@ pnpm dev
 
 ## TASK
 
-- Adding to github.
 - Removing alerts in front-end
  
 
