@@ -34,7 +34,7 @@ COMPOSE_FOLDER="./compose" # Specifies in which folder the apps will be located;
 
 <br />
 
-5.1 If you want to add an icon for the application, remember to place it inside the `/public/images/icons` folder.
+6. If you want to add an icon for the application, remember to place it inside the `/public/images/icons` folder.
 Create your folder and add the file there. For example: `/public/images/icons/code-server/icon.png`. To make the icon visible in your application, add a `config.json` file inside the app folder:
   ```JSON
   {
@@ -42,14 +42,14 @@ Create your folder and add the file there. For example: `/public/images/icons/co
   }
   ```
 
-5.2 If you want to open a web interface when clicking on the application, add your app's URL inside the `config.json` file. Example::
+7. If you want to open a web interface when clicking on the application, add your app's URL inside the `config.json` file. Example::
   ```JSON
   {
     "url": "https://code-server.aurora.apps"
   }
   ```
 
-6. Starting application
+8. Starting application
 
 ```bash
 pnpm dev
