@@ -4,7 +4,7 @@
 
 Web interface to start/stop containers using docker-compose.
 
-## Tasks
+### Tasks
 - Removing alerts in front-end
 
 ### Requirements
