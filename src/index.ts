@@ -1,6 +1,6 @@
 import 'express-async-errors'
 import 'dotenv/config'
-import express, { type Request, type Response } from 'express';
+import express from 'express';
 import { errorMiddleware } from 'middleware/error';
 import { errorNotFoundMiddleware } from 'middleware/error-notfound';
 import { apiRouter } from 'routes';
@@ -13,12 +13,9 @@ server.use(express.static('public'))
 server.use(express.json({ limit: '5mb' }));
 server.use(express.urlencoded({ extended: true }));
 
-server.use(errorMiddleware);
 server.use(apiRouter);
-server.get("/api/status", (req: Request, res: Response) => {
-  console.log("status")
-  return res.status(200).end();
-})
+
+server.use(errorMiddleware);
 server.use(errorNotFoundMiddleware)
 
 
