@@ -4,9 +4,13 @@
 
 Web interface to start/stop containers using docker-compose.
 
-### Requerimentos
-- Docker
-- Docker Compose
+## Taks
+- Removing alerts in front-end
+
+### Requirements
+- Node.js
+- Install docker
+- Install docker-compose
 
 ## Instalation
 
@@ -21,9 +25,9 @@ cd aurora.apps
 pnpm install
 ```
 
-3. Crie um arquivo `.env` com as duas variaveis ambientes abaixo:
+3. Create a `.env` file with the two environment variables below:
 ```bash
-PORT="you port" # Server Port
+PORT="3000" # Server Port
 COMPOSE_FOLDER="./compose" # Specifies in which folder the apps will be located;
 ```
 
@@ -53,22 +57,28 @@ Create your folder and add the file there. For example: `/public/images/icons/co
   }
   ```
 
-8. Build docker image:
+8. building and running the application:
+```bash
+pnpm run build && node ./dist/index.js
+```
+
+### Running using docker-compose
+
+1. Build docker image:
 ```bash
 docker-compose build
 ```
 
-9. Next, running the container:
+1. Next, running the container:
 ```bash
 docker-compose up -d
 ```
 
-The port is exposed at address 7777
+- The port is exposed at address 7777
 
-## TASK
 
-- Removing alerts in front-end
- 
+<br />
+<br />
 
 ## References
 - Package for docker-compose manager -> https://github.com/PDMLab/docker-compose;
