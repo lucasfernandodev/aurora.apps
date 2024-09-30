@@ -9,9 +9,14 @@ export const viewManager = {
 			const container = document.querySelector(".container-apps");
 			const appList = await appManager.list();
 
+			if(appList === null){
+				document.body.appendChild(new BarOffline());
+				return;
+			}
+
 			if (JSON.stringify(appList) !== JSON.stringify(applicationsList)) {
 				applicationsList = appList;
-			} else {
+			} else { 
 				return;
 			}
 
@@ -35,6 +40,8 @@ export const viewManager = {
 			});
 
 			container.innerHTML = "";
+			const isBarOffline = document.querySelector(".bar-offline");
+			isBarOffline?.parentNode.removeChild(isBarOffline);
 			// biome-ignore lint/complexity/noForEach: <explanation>
 			cards.forEach((card) => container.appendChild(card));
 		};
