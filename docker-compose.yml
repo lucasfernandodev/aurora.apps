@@ -5,7 +5,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    image: node:20-alpine
+    image: aurora.app:1.0
     container_name: aurora.app
     restart: always
     env_file: .env

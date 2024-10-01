@@ -6,6 +6,7 @@ Web interface for managing Docker Compose containers, allowing me to manually st
 
 ### Tasks
 - Removing alerts in front-end
+-  Change ./compose folder of .env to docker-compose folder-mount
 
 ### Requirements
 - Node.js
