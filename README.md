@@ -2,7 +2,7 @@
 
 <h1 align="center">Aurora.apps</h1>
 
-Web interface to start/stop containers using docker-compose.
+Web interface for managing Docker Compose containers, allowing me to manually start or stop containers directly from the browser.
 
 ### Tasks
 - Removing alerts in front-end
