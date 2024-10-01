@@ -10,7 +10,7 @@ const CACHE_URLS = [
 	"/assets/javascript/components/menu-popup.js",
 	"/assets/javascript/config.js",
 	"/assets/javascript/controllers/appManager.js",
-	"/assets/javascript/controllers/viewManager.js"
+	"/assets/javascript/controllers/viewManager.js",
 ];
 
 self.addEventListener("install", (event) => {
@@ -26,7 +26,8 @@ self.addEventListener("fetch", (event) => {
 		caches.match(event.request).then((response) => {
 			// Se o cache não existe retorna pela rede
 			// se o cache existe ele retorna o cache atual e atuliza para a proxima vez
-			const fetchPromise = fetch(event.request).then((networkResponse) => {
+			const fetchPromise = fetch(event.request).then(async (networkResponse) => {
+				const cache = await caches.open(CACHE_NAME);
 				cache.put(event.request, networkResponse.clone());
 				return networkResponse;
 			});

@@ -13,7 +13,6 @@ if ("customElements" in window) {
 }
 
 if ("serviceWorker" in navigator) {
-	console.log("service");
 	window.addEventListener("load", () => {
 		initServiceWorker();
 	});

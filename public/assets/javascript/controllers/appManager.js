@@ -41,7 +41,6 @@ export const appManager = {
 		try {
 			const response = await fetch(url);
 			const data = await response.json();
-			console.log('received: ', data)
 			if (data.success) return data.apps
 		} catch (error) {
 			console.error("[appManager->list] :: ", error);

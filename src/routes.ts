@@ -17,7 +17,6 @@ apiRouter.post("/api/:app/start", startAppController.handle)
 apiRouter.get("/api/:app/status", getStatusAppController.handle)
 apiRouter.get("/api/apps", listAppsController.handle)
 apiRouter.get("/api/server-status", (req: Request, res: Response) => {
-  console.log("status")
   return res.status(200).end();
 })
 

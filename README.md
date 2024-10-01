@@ -74,8 +74,9 @@ docker-compose build
 docker-compose up -d
 ```
 
-- The port is exposed at address 7777
+The port is exposed at address 7777
 
+> If you are going to change the application's default port (3000), remember to also change the forwarding in docker-compose.yml
 
 <br />
 <br />

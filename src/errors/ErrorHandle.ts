@@ -2,7 +2,7 @@ import { BaseError } from "./baseError"
 
 class ErrorHandle {
   public async handleError(error: Error): Promise<void> {
-    console.log('Error message from the centralized error-handling component', error)
+    console.error('[SERVER ERROR] :::', error)
   }
 
   public isTrustedError(error: Error){
