@@ -22,17 +22,32 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
+	const requestUrl = new URL(event.request.url);
+
+	if (requestUrl.pathname.startsWith("/api/")) {
+		// Requisição passa direto para a rede, sem usar cache
+		return event.respondWith(fetch(event.request));
+	}
+
 	event.respondWith(
 		caches.match(event.request).then((response) => {
-			// Se o cache não existe retorna pela rede
-			// se o cache existe ele retorna o cache atual e atuliza para a proxima vez
-			const fetchPromise = fetch(event.request).then(async (networkResponse) => {
-				const cache = await caches.open(CACHE_NAME);
-				cache.put(event.request, networkResponse.clone());
-				return networkResponse;
-			});
+			const fetchPromise = fetch(event.request).then(
+				async (networkResponse) => {
+					if (event.request.method === "GET") {
 
-			return response || fetchPromise;
+						if(requestUrl.pathname === "/" || networkResponse.status !== 200){
+							return response
+						}
+
+						const cache = await caches.open(CACHE_NAME);
+						cache.put(event.request, networkResponse.clone());
+					}
+
+					return networkResponse;
+				},
+			);
+
+			return fetchPromise || response;
 		}),
 	);
 });
