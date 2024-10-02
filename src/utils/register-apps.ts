@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { localCompose } from 'config';
 import { isDir } from './isDir';
 
 type AppFilesType = Record<string, {
@@ -19,7 +20,6 @@ export function registerApps(composeFolder: string) {
   function exec(composeFolder: string) {
     const result = [] as string[];
 
-
     if (!isDir(composeFolder)) {
       console.error('Docker-compose Folder not found ', composeFolder)
       return [];
@@ -29,7 +29,6 @@ export function registerApps(composeFolder: string) {
 
     for (let i = 0; i < files.length; i++) {
       const filename = path.join(composeFolder, files[i]);
-
       const stat = fs.lstatSync(filename);
       
       if (stat.isDirectory()) {
@@ -39,17 +38,19 @@ export function registerApps(composeFolder: string) {
       }
 
       else if (filename.indexOf(appFiles.compose) >= 0) {
-        const appNname = filename.split("/")[1]
+        const appNname = filename.replace(localCompose, "").split("/")[0]
         apps[appNname].composeFile = filename
         result.push(filename);
       }
 
       else if (filename.indexOf(appFiles.config) >= 0) { 
-        const appNname = filename.split("/")[1]
-        apps[appNname].configFile = filename 
+
+        if(typeof filename !== 'undefined'){
+          const appNname = filename.replace(localCompose, "").split("/")[0]
+          apps[appNname].configFile = filename 
+        }
       }
     }
-
   }
 
   exec(composeFolder)

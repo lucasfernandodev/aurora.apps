@@ -6,7 +6,7 @@ Web interface for managing Docker Compose containers, allowing me to manually st
 
 ### Tasks
 - Removing alerts in front-end
--  Change ./compose folder of .env to docker-compose folder-mount
+- dynamically add icons
 
 ### Requirements
 - Node.js
@@ -26,16 +26,15 @@ cd aurora.apps
 pnpm install
 ```
 
-3. Create a `.env` file with the two environment variables below:
+3. Create a `.env` with set application port:
 ```bash
 PORT="3000" # Server Port
-COMPOSE_FOLDER="./compose" # Specifies in which folder the apps will be located;
 ```
 
-4. Inside the folder declared in the `.env` file, create a new folder with the name of your application.
+4. In the folder where you chose to place the Docker Compose files, create a new folder with the name of the application.
 Exemple:
 ```bash
-mkdir -p ./compose/new-aplication
+mkdir -p /opt/compose/new-aplication
 ```
 
 5. Inside your application's folder, add your `docker-compose.yml` file.

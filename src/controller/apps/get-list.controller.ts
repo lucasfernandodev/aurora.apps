@@ -1,7 +1,7 @@
 import { readJson } from "@utils/readJson";
 import { registerApps } from "@utils/register-apps";
+import { localCompose } from "config";
 import { v2 as compose } from "docker-compose";
-import { env } from "env";
 import type { Request, Response } from "express";
 import { appConfigScheme } from "schemes/app-config";
 
@@ -16,7 +16,7 @@ export class GetListAppsController {
   async handle(req: Request, res: Response) {
     const data: ResponseType[] = [];
 
-    const apps = registerApps(env.COMPOSE_FOLDER);
+    const apps = registerApps(localCompose);
     const keys = Object.keys(apps);
 
     for (const appName of keys) {

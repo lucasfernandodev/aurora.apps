@@ -1,6 +1,6 @@
-import { env } from '../env';
+import { localCompose } from 'config';
 export const resolveAppFolder = (app: string) => {
-  const root = env.COMPOSE_FOLDER;
+  const root = localCompose;
   const lastchar = root.substring(-1);
   if(lastchar === '/'){
     return `${root}${app}/`

@@ -12,6 +12,8 @@ services:
     command: npm run dev
     volumes:
       - .:/home/node/aurora.app/
+      # Compose directory 
+      - /opt/compose:/opt/compose
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - "7777:3000"
