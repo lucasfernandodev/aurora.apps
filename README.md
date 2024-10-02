@@ -6,7 +6,8 @@ Web interface for managing Docker Compose containers, allowing me to manually st
 
 ### Tasks
 - Removing alerts in front-end
-- dynamically add icons
+- dynamically add icons34043537
+
 
 ### Requirements
 - Node.js
@@ -21,14 +22,9 @@ git clone https://github.com/lucasfernandodev/aurora.apps
 cd aurora.apps
 ```
 
-2. install node deps
+2. Create directoy that store you docker-compose files.
 ```bash
-pnpm install
-```
-
-3. Create a `.env` with set application port:
-```bash
-PORT="3000" # Server Port
+mkdir -p /opt/compose
 ```
 
 4. In the folder where you chose to place the Docker Compose files, create a new folder with the name of the application.
@@ -38,7 +34,9 @@ mkdir -p /opt/compose/new-aplication
 ```
 
 5. Inside your application's folder, add your `docker-compose.yml` file.
+> 
 > Remember that the only thing the application does is start/pause the container. Do the rest manually.
+> 
 
 <br />
 
@@ -61,8 +59,6 @@ Create your folder and add the file there. For example: `/public/images/icons/co
 ```bash
 pnpm run build && node ./dist/index.js
 ```
-
-### Running using docker-compose
 
 1. Build docker image:
 ```bash
