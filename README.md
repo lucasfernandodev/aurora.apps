@@ -6,7 +6,7 @@ Web interface for managing Docker Compose containers, allowing me to manually st
 
 ### Tasks
 - Removing alerts in front-end
-- dynamically add icons34043537
+- dynamically add icons
 
 
 ### Requirements
