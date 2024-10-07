@@ -29,7 +29,8 @@ function initServiceWorker() {
 
 const main = async () => {
 	try {
-		const response = await fetch(`${config.apiURL}server-status`);
+		const response = await fetch(`${config.apiURL}server-status`);;
+		
 		if (response.status !== 200) {
 			document.body.appendChild(new BarOffline());
 			return;

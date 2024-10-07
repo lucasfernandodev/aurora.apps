@@ -44,7 +44,7 @@ export class MenuPopup extends HTMLElement {
 		this.innerHTML = `
     <ul>
       <li>
-        <button data-command="start" ${state !== "running" ? "" : 'disabled="disabled"'}>
+        <button data-command="start" ${state !== "running" && state !== 'not installed' ? "" : 'disabled="disabled"'}>
           Iniciar Aplicativo
         </button>
         <button data-command="stop" ${state === "running" ? "" : 'disabled="disabled"'}>

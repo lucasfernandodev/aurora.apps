@@ -1,4 +1,5 @@
 import { readFile, stat } from 'node:fs/promises';
+import { isFileExist } from './isFile';
 
 const isJSON = (content: string): boolean => {
   try {
@@ -9,15 +10,7 @@ const isJSON = (content: string): boolean => {
   }
 }
 
-const isFileExist = async (file: string): Promise<boolean> => {
-  try {
-    const isFile = await stat(file);
-    if (isFile) return true;
-    return false;
-  } catch (error) {
-    return false;
-  }
-}
+
 
 export const readJson = async (path: string): Promise<Record<string, string> | null> => {
   try {

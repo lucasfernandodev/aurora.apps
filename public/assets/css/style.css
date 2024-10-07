@@ -31,7 +31,7 @@ input {
 button {
   cursor: pointer;
 }
- 
+
 main {
   width: min(800px, calc(100% - 32px));
   display: flex;
@@ -110,14 +110,14 @@ main header {
   }
 }
 
-.app-skeleton{
+.app-skeleton {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
   position: relative;
 
-  & .icon{
+  & .icon {
     width: 87px;
     height: 87px;
     background: linear-gradient(to left top, #090909, #181818);
@@ -131,12 +131,12 @@ main header {
     animation: splash 1s linear infinite;
   }
 
-  & .title{
+  & .title {
     width: 100%;
     height: auto;
   }
 
-  & h3{
+  & h3 {
     display: block;
     min-height: 20px;
     width: 100%;
@@ -147,10 +147,11 @@ main header {
 }
 
 @keyframes splash {
-  0%{
+  0% {
     background: #090909
   }
-  100%{
+
+  100% {
     background: #070707
   }
 }
@@ -164,8 +165,9 @@ main header {
   cursor: pointer;
   text-decoration: none;
   color: inherit;
+  width: 120px;
 
-  &[data-web-ui="false"]{
+  &[data-web-ui="false"] {
     cursor: default;
   }
 
@@ -178,10 +180,30 @@ main header {
     display: block;
     z-index: 20;
     top: 69px;
-    left: 69px;
+    left: unset;
+    right: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  &[data-status="not installed"]{
+   filter: grayscale(100%) brightness(50%); 
+   user-select: none;
+   pointer-events: none;
+  }
+
+  &[data-status="not installed"] .status{
+    display: none;
+  }
+
+  &[data-status="not installed"] .title h3{
+    color: #555;
+    text-align: center;
+
+    &::after{
+      content: " (Não instalado)"
+    }
   }
 
   &[data-status="running"] .status {
@@ -189,7 +211,7 @@ main header {
     animation: pulse 2s linear infinite;
   }
 
-  &[data-loading="true"] .status{
+  &[data-loading="true"] .status {
     display: none;
   }
 
@@ -234,6 +256,7 @@ main header {
     font-size: 1.6rem;
     line-height: 2rem;
     text-transform: capitalize;
+    word-wrap: break-word;
   }
 
 
@@ -246,7 +269,7 @@ main header {
   initial-value: 0turn;
 }
 
-.popup-menu{
+.popup-menu {
   --mouse-x: 0;
   --mouse-y: 0;
   position: fixed;
@@ -259,65 +282,65 @@ main header {
 
   background: #090909;
   border: 1px solid #181818dd;
- 
+
   z-index: 1000;
   border-radius: 12px;
   min-width: 180px;
   padding: 4px;
 
- & ul{
-  list-style: none;
- }
+  & ul {
+    list-style: none;
+  }
 
- & li{
-  width: 100%;
- }
+  & li {
+    width: 100%;
+  }
 
- & li button span{
-  user-select: none;
-  pointer-events: none;
- }
-
- & button{
-  background: none;
-  cursor: pointer;
-  text-decoration: none;
-  border: 0px;
-  color: #aaa;
-  height: 44px;
-  width: 100%;
-  padding-left: 12px;
-  padding-right: 8px;
-  text-align: left;
-  border-radius: 8px;
-  transition: 400ms ease;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 24px;
-  justify-content: space-between;
-
-  &:disabled{
-    cursor: default;
- 
+  & li button span {
     user-select: none;
-    opacity: 0.3;
+    pointer-events: none;
   }
 
-  &:not(:disabled):hover{
-    background: #222222d7;
-    color: #ddd;
+  & button {
+    background: none;
+    cursor: pointer;
+    text-decoration: none;
+    border: 0px;
+    color: #aaa;
+    height: 44px;
+    width: 100%;
+    padding-left: 12px;
+    padding-right: 8px;
+    text-align: left;
+    border-radius: 8px;
+    transition: 400ms ease;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    justify-content: space-between;
+
+    &:disabled {
+      cursor: default;
+
+      user-select: none;
+      opacity: 0.3;
+    }
+
+    &:not(:disabled):hover {
+      background: #222222d7;
+      color: #ddd;
+    }
   }
- }
 }
 
 @keyframes spinner {
-  to{
+  to {
     transform: rotate(360deg);
   }
 }
 
-.bar-offline{
+.bar-offline {
   position: fixed;
   bottom: 0px;
   height: 40px;

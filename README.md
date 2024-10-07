@@ -1,20 +1,15 @@
-<img src="./docs/aurora.app-screenshot.png" alt="Aurora apps" />
-
 <h1 align="center">Aurora.apps</h1>
 
-Web interface for managing Docker Compose containers, allowing me to manually start or stop containers directly from the browser.
-
-### Tasks
-- Removing alerts in front-end
-- dynamically add icons
-
+<p align="center">A simple web interface for start/paused Docker Compose containers.</p>
 
 ### Requirements
-- Node.js
-- Install docker
-- Install docker-compose
+- [Node.js](https://nodejs.org/en/download/)
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
-## Instalation
+## Getting Started
+
+Follow these steps to get the project running on your local machine:
 
 1. Clone this project
 ```bash
@@ -22,15 +17,15 @@ git clone https://github.com/lucasfernandodev/aurora.apps
 cd aurora.apps
 ```
 
-2. Create directoy that store you docker-compose files.
+2. Create a directory to store your docker-compose files.
 ```bash
 mkdir -p /opt/compose
 ```
 
 4. In the folder where you chose to place the Docker Compose files, create a new folder with the name of the application.
-Exemple:
+Example:
 ```bash
-mkdir -p /opt/compose/new-aplication
+mkdir -p /opt/compose/new-application
 ```
 
 5. Inside your application's folder, add your `docker-compose.yml` file.
@@ -38,50 +33,47 @@ mkdir -p /opt/compose/new-aplication
 > Remember that the only thing the application does is start/pause the container. Do the rest manually.
 > 
 
-<br />
 
-6. If you want to add an icon for the application, remember to place it inside the `/public/images/icons` folder.
-Create your folder and add the file there. For example: `/public/images/icons/code-server/icon.png`. To make the icon visible in your application, add a `config.json` file inside the app folder:
-  ```JSON
-  {
-    "icon": "code-server/icon.png"
-  }
-  ```
-
-7. If you want to open a web interface when clicking on the application, add your app's URL inside the `config.json` file. Example::
-  ```JSON
-  {
-    "url": "https://code-server.aurora.apps"
-  }
-  ```
-
-8. building and running the application:
-```bash
-pnpm run build && node ./dist/index.js
-```
-
-1. Build docker image:
+4. Build docker image:
 ```bash
 docker-compose build
 ```
 
-1. Next, running the container:
+5. Next, run the container:
 ```bash
 docker-compose up -d
 ```
 
-The port is exposed at address 7777
+## Configuration
 
-> If you are going to change the application's default port (3000), remember to also change the forwarding in docker-compose.yml
+If you want to open a web interface when clicking on the application, add your app's URL inside the `config.json` file. Example::
+```JSON
+  {
+    "url": "https://code-server.aurora.apps"
+  }
+```
 
-<br />
-<br />
+## How to Use
+
+Once everything is set up, access the web interface at `http://localhost:7777`.
+
+- You will see all the Docker Compose configurations available.
+- From there, you can easily start or stop any container by clicking on the corresponding button.
+
+![Aurora apps](./docs/aurora.app-screenshot.png)
+
+
+## Roadmap
+- Removing alerts in front-end
 
 ## References
-- Package for docker-compose manager -> https://github.com/PDMLab/docker-compose;
-- color -> https://colorffy.com/contrast-checker?colors=000000-18a861
-- popup menu position -> https://mionskowski.pl/posts/positioning-a-context-menu-using-pure-css/
-- Javascript custom element -> https://javascript.info/custom-elements
--https://web.dev/articles/offline-cookbook?hl=pt-br#stale-while-revalidate
+
+Icons are downloaded from [Dashboard Icons](https://github.com/walkxcode/dashboard-icons?tab=readme-ov-file#-icons).
+
+- Docker Compose manager package -> https://github.com/PDMLab/docker-compose;
+- Color contrast checker -> https://colorffy.com/contrast-checker?colors=000000-18a861
+- Positioning context menu -> https://mionskowski.pl/posts/positioning-a-context-menu-using-pure-css/
+- Custom elements in Javascript -> https://javascript.info/custom-elements
+- Service workers  -> https://web.dev/articles/offline-cookbook?hl=pt-br#stale-while-revalidate
 https://stackoverflow.com/questions/39363959/javascript-service-worker-fetch-resource-from-cache-but-also-update-it?rq=4
 https://developer.chrome.com/docs/workbox/caching-strategies-overview?hl=pt-br
