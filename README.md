@@ -46,7 +46,8 @@ docker-compose up -d
 
 ## Configuration
 
-If you want to open a web interface when clicking on the application, add your app's URL inside the `config.json` file. Example::
+If you want to open a web interface when clicking on the application, add your app's URL inside the `config.json` file.
+Example:
 ```JSON
   {
     "url": "https://code-server.aurora.apps"
@@ -55,10 +56,7 @@ If you want to open a web interface when clicking on the application, add your a
 
 ## How to Use
 
-Once everything is set up, access the web interface at `http://localhost:7777`.
-
-- You will see all the Docker Compose configurations available.
-- From there, you can easily start or stop any container by clicking on the corresponding button.
+Once everything is set up, access the web interface at `http://localhost:7777`. From there, you can easily start or stop any container by right-clicking on the icon and selecting the corresponding option.
 
 ![Aurora apps](./docs/aurora.app-screenshot.png)
 
